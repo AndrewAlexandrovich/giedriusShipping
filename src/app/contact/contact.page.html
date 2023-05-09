@@ -1,0 +1,80 @@
+<ion-header [translucent]="true">
+<ion-toolbar>
+  <ion-buttons slot="start">
+  <button class="backhome" ion-button size="small" (click)="goHome()" color="medium" ><ion-icon name="arrow-back-outline"></ion-icon> Back</button>
+
+  </ion-buttons>
+  <ion-title >Contact us</ion-title>
+
+</ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-grid *ngIf="contacts">
+    <div class="locations-header">
+      <h3>Our locations</h3>
+    </div>
+    <div *ngFor="let contact of contacts">
+    <ion-row>
+      <ion-col>
+        <ion-card class="contact-item">
+          <img *ngIf="contact.url_flag" class="contact-flag" src="{{ contact.url_flag }}" />
+          <ion-card-header>
+            <ion-card-title>{{ contact.country_name }}</ion-card-title>
+            <ion-card-subtitle *ngIf="contact.email">Email: {{ contact.email }} <ion-icon class="copy-icon" (click)="writeClipboard(contact.email)" name="copy-outline"></ion-icon></ion-card-subtitle>
+            <ion-card-subtitle *ngIf="contact.phone_1">Telephone: {{ contact.phone_1 }} <ion-icon class="copy-icon" (click)="writeClipboard(contact.phone_1)" name="copy-outline"></ion-icon></ion-card-subtitle>
+            <ion-card-subtitle *ngIf="contact.phone_2">Telephone: {{ contact.phone_2 }} <ion-icon class="copy-icon" (click)="writeClipboard(contact.phone_2)" name="copy-outline"></ion-icon></ion-card-subtitle>
+            <ion-card-subtitle *ngIf="contact.phone_3">Telephone: {{ contact.phone_3 }} <ion-icon class="copy-icon" (click)="writeClipboard(contact.phone_3)" name="copy-outline"></ion-icon></ion-card-subtitle>
+            <ion-card-subtitle *ngIf="contact.address">Address: {{ contact.address }}</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content *ngIf="contact.comment">
+            {{ contact.comment }}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    </div>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div class="locations-header">
+          <h3>Contact Us</h3>
+          <p>We understand the importance of approaching each work integrally and believe in the power of simple and easy communication.</p>
+        </div>
+        <ion-card>
+          <form class="contact-form" #form="ngForm" (ngSubmit)="submitForm(form)">
+          <ion-list>
+            <ion-item>
+              <ion-input label="Your name *"  ngModel name="name" labelPlacement="floating" required placeholder="Your name *"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input label="Your email *" ngModel name="email" labelPlacement="floating" required placeholder="Your email *"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input label="Telephone" ngModel name="phone" labelPlacement="floating" placeholder="Telephone"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input label="Company" ngModel name="company" labelPlacement="floating" placeholder="Company"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-textarea label="Request details" ngModel name="comment" labelPlacement="floating" placeholder="Request Details"></ion-textarea>
+            </ion-item>
+            <ion-item>
+              <ion-button class="ion-activatable ripple-parent rounded-rectangle button-submit" type="submit" expand="full">
+                Send <ion-icon name="checkmark-outline"></ion-icon>
+                <ion-ripple-effect></ion-ripple-effect>
+              </ion-button>
+            </ion-item>
+          </ion-list>
+          </form>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>

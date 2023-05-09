@@ -1,0 +1,76 @@
+button.backhome {
+    padding: 4px 6px;
+    border-radius: 0.15rem;
+}
+button.backhome ion-icon {
+    vertical-align: bottom;
+}
+
+img.contact-flag {
+    display: block;
+    margin: auto;
+    margin:10px auto 0px auto;
+    border-radius: 50%;
+}
+ion-card.contact-item {
+    text-align: center;
+}
+.locations-header > h3 {
+    text-align: center;
+    font-size: 25px !important;
+    margin-bottom: 15px;
+    color: var(--ion-blue-yellow-color);
+    font-weight: 600;
+}
+.locations-header p {
+    text-align: center;
+    color: #b4b4b4;
+    margin-bottom: 15px;
+    display: block;
+    font-size: 13px;
+    padding: 0px 10px;
+}
+ion-button.button-submit {
+    background-color: #121c45;
+    color: #ffffff;
+    border: 2px solid #121c45;
+    width: 100%;
+}
+ion-button.button-submit{
+  button.button-native{
+    background-color: #121c45;
+    color: #ffffff;
+  }
+}
+ion-button.button-submit {
+  --background: #121c45;
+  --background-hover: #fbac00;
+  --background-activated: #121c45;
+  --background-focused: #121c45;
+  --color: #fff;
+  --border-radius: 0;
+  --border-color: #121c45;
+  --border-style: solid;
+  --border-width: 1px;
+  --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+  height: 40px;
+}
+ion-icon.copy-icon {
+    margin-left: 10px;
+    vertical-align: bottom;
+}
+body.dark .locations-header > h3{
+  color:#fbac00 !important;
+}
+
+body.dark {
+  .locations-header > h3{
+    color:#fbac00 !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .locations-header > h3{
+    color:#fbac00 !important;
+  }
+}

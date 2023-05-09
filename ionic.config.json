@@ -1,0 +1,7 @@
+{
+  "name": "Giedrius Shipping",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

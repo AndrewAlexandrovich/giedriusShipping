@@ -1,0 +1,133 @@
+
+<ion-menu contentId="main-content">
+  <ion-content class="ion-padding menu-content">
+	<div class="menu-header-with-logo">
+		<img class="logo" src="/assets/images/logo-light.png"/>
+	</div>
+	<div class="menu-items">
+<ion-list [inset]="true">
+<div class="menu-items" *ngFor="let menu_item of menus">
+  <ion-item class="item-bg">
+    <ion-label (click)="openPages(menu_item['id'])">
+      <ion-icon *ngIf="menu_item['ion_icon']" name="{{ menu_item['ion_icon'] }}"></ion-icon>
+      {{ menu_item['menu_title'] }}
+    </ion-label>
+  </ion-item>
+</div>
+
+  <ion-item>
+    <ion-label (click)="openContact()">
+      <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+      Contact</ion-label>
+  </ion-item>
+</ion-list>
+	</div>
+  </ion-content>
+</ion-menu>
+
+
+<div class="ion-page" id="main-content">
+<ion-header class="main-header">
+    <ion-toolbar  class="new-background-color">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Giedrius Shipping</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content >
+  <ion-card-content class="homeimage">
+  <img src="https://giedrius-shipping.com/assets/images/home_top_bg.jpg">
+  </ion-card-content>
+<div class="ion-padding">
+
+    <ion-searchbar (ionInput)="getItems($event)" (ionCancel)="onCancel($event)" (ionClear)="onCancel($event)" animated="true" placeholder="Track No, Container No, Booking No or B/L No"></ion-searchbar>
+<ion-list *ngIf="cn_results || empty_text" class="result-list">
+  <ion-item *ngFor="let result of cn_results">
+    <ion-label><button class="openTrackButton" expand="full" ion-button (click)="openTrackPage(result['track_number'])" >Open track {{ result['track_number'] }}</button></ion-label>
+  </ion-item>
+  <ion-item *ngIf="empty_text">
+    <span class="not-found-text">{{ empty_text }}</span>
+  </ion-item>
+</ion-list>
+
+<div class="home-cards" *ngFor="let card of home_cards">
+  <ion-card>
+    <ion-card-header>
+    <ion-card-content class="icon-service">
+    <ion-icon name="{{ card['ion_icon'] }}"></ion-icon>
+    </ion-card-content>
+      <ion-card-title>{{ card['title'] }}</ion-card-title>
+      <ion-card-subtitle>{{ card['short_description'] }}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+  	 <button class="open-page-card" ion-button (click)="openPages(card['id'])">Read more <ion-icon name="arrow-forward-outline"></ion-icon></button>
+    </ion-card-content>
+  </ion-card>
+</div>
+
+
+
+</div>
+<div class="why-us">
+  <div class="why-us-header">
+    <h3>Why Choose Us!</h3>
+    <p>Despite the challenges of our intricate and unpredictable world, we persist in our pursuit of that same vision, striving every day to gain the trust of our customers.</p>
+  </div>
+<ion-grid class="ion-padding">
+  <ion-row>
+    <ion-col>
+      <div class="light-border-card icon-service">
+          <ion-icon name="card-outline"></ion-icon>
+          <h4>Easy Payment Methods</h4>
+          <p>You can make use the easy payment options, listed below.</p>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div class="light-border-card icon-service">
+          <ion-icon name="rocket-outline"></ion-icon>
+          <h4>Fast & Efficient Delivery</h4>
+          <p>We enhance our operations by relieving you of the worries.</p>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <div class="light-border-card icon-service">
+          <ion-icon name="person-add-outline"></ion-icon>
+          <h4>Personalised solutions</h4>
+          <p>We continue to pursue that same vision in today's complex solutions.</p>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div class="light-border-card icon-service">
+          <ion-icon name="wallet-outline"></ion-icon>
+          <h4>Transparent Pricing</h4>
+          <p>International supply chains involves challenging regulations.</p>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <div class="light-border-card icon-service">
+          <ion-icon name="search-outline"></ion-icon>
+          <h4>Real-Time Tracking</h4>
+          <p>Ensure customers’ supply chains are fully compliant by practices.</p>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div class="light-border-card icon-service">
+          <ion-icon name="shield-checkmark-outline"></ion-icon>
+          <h4>Security For Cargo</h4>
+          <p>High security requirements and are certified to local standards.</p>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</div>
+
+  </ion-content>
+</div>

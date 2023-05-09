@@ -1,0 +1,198 @@
+.top-bg{
+	background-image: url(/assets/images/1.jpg);
+    height: 200px;
+    background-size: cover;
+    background-position: center center;
+	position: relative;
+}
+.layer-bg-color {
+    background: #fbac00;
+    height: 45px;
+    bottom: 0px;
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+}
+ion-card-content.icon-service {
+    padding: 5px !important;
+}
+ion-card-content.icon-service ion-icon {
+width: 35px;
+    height: 35px;
+    display: block;
+    /* margin: auto; */
+	color: var(--ion-blue-yellow-color);
+}
+ion-card.track_short_inf {
+	ion-card-title{
+		color: var(--ion-blue-yellow-color);
+	}
+}
+ion-grid.first-el {
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    margin-top: -35px;
+    background: #fff;
+	z-index: 1;
+    position: relative;
+}
+
+
+.card-track-item h5 {
+    font-size: 15px;
+    margin-bottom: 10px;
+    min-height: 33px;
+}
+.vertical-timeline {
+    width: 100%;
+    position: relative;
+    padding: 1.5rem 0 1rem;
+}
+
+.vertical-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 130px;
+    height: 100%;
+    width: 4px;
+    background: #e9ecef;
+    border-radius: .25rem;
+}
+
+.vertical-timeline-element {
+    position: relative;
+    margin: 0 0 1rem;
+}
+
+.vertical-timeline--animate .vertical-timeline-element-icon.bounce-in {
+    visibility: visible;
+    animation: cd-bounce-1 0.8s;
+    background: #fbac00;
+    border-radius: 7px;
+}
+.vertical-timeline-element-icon {
+    position: absolute;
+    top: 0;
+    left: 120px;
+}
+
+.vertical-timeline-element-icon .badge-dot-xl {
+    box-shadow: 0 0 0 5px #fff;
+}
+
+.badge-dot-xl {
+    width: 18px;
+    height: 18px;
+    position: relative;
+}
+.badge:empty {
+    display: none;
+}
+i.badge.badge-dot.badge-success:after {
+    content: '';
+    background: #fff;
+    position: absolute;
+    width: 12px;
+    height: 9px;
+    border-radius: 5px;
+    top: 6px;
+    left: 6px;
+}
+
+
+.badge-dot-xl::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: .25rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -5px 0 0 -5px;
+    background: #fff;
+}
+
+.vertical-timeline-element-content {
+    position: relative;
+    margin-left: 155px;
+    font-size: .8rem;
+}
+
+.vertical-timeline-element-content .timeline-title {
+    font-size: .8rem;
+    text-transform: uppercase;
+    margin: 0 0 .5rem;
+    padding: 2px 0 0;
+    font-weight: bold;
+}
+
+.vertical-timeline-element-content .vertical-timeline-element-date {
+    display: block;
+    position: absolute;
+    left: -140px;
+    top: 0;
+    padding-right: 10px;
+    text-align: right;
+    color: #adb5bd;
+    font-size: .7619rem;
+    white-space: nowrap;
+}
+
+.vertical-timeline-element-content:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.track-history-item .button-download {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    z-index: 1;
+}
+
+.vertical-timeline-element-icon i.badge-dot.fa {
+    width: 25px;
+    display: inline-block;
+    background: #fbac00;
+    border-radius: 15px;
+}
+button.backhome {
+    padding: 4px 6px;
+    border-radius: 0.15rem;
+}
+button.backhome ion-icon {
+    vertical-align: bottom;
+}
+
+body.dark ion-card.track_short_inf, body.dark ion-card-content.icon-service{
+	color:#fbac00 !important;
+}
+body.dark ion-grid.first-el.md {
+    background: #1e1e1e;
+}
+body.dark{
+	ion-card.track_short_inf{
+		color:#fbac00 !important;
+	}
+	ion-card-content.icon-service{
+		color:#fbac00 !important;
+	}
+	ion-grid.first-el {
+	    background: #1e1e1e !important;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	ion-card.track_short_inf{
+		color:#fbac00 !important;
+	}
+	ion-card-content.icon-service{
+		color:#fbac00 !important;
+	}
+	ion-grid.first-el {
+	    background: #1e1e1e !important;
+	}
+}

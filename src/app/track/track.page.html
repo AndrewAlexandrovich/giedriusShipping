@@ -1,0 +1,172 @@
+<ion-header [translucent]="true">
+<ion-toolbar>
+  <ion-buttons slot="start">
+  <button class="backhome" ion-button size="small" (click)="goHome()" color="medium" ><ion-icon name="arrow-back-outline"></ion-icon> Back</button>
+
+  </ion-buttons>
+  <ion-title >Track {{ track_id }}</ion-title>
+
+</ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+	<div class="top-bg">
+<div class="layer-bg-color"></div>
+	</div>
+
+  <ion-grid class="first-el">
+  <ion-row>
+    <ion-col>
+	<ion-card class="track_short_inf">
+	  <ion-card-header>
+	  <ion-card-content class="icon-service">
+		<ion-icon name="boat-outline"></ion-icon>
+	  </ion-card-content>
+		<ion-card-title>Track No</ion-card-title>
+		<ion-card-subtitle>{{ track_id }}</ion-card-subtitle>
+	  </ion-card-header>
+	</ion-card>
+	</ion-col>
+	<ion-col>
+	<ion-card class="track_short_inf">
+	  <ion-card-header>
+	  <ion-card-content class="icon-service">
+		<ion-icon name="albums-outline"></ion-icon>
+	  </ion-card-content>
+		<ion-card-title>Container No</ion-card-title>
+		<ion-card-subtitle>{{ cotainer_no }}</ion-card-subtitle>
+	  </ion-card-header>
+	</ion-card>
+	</ion-col>
+
+  </ion-row>
+  <ion-row>
+    <ion-col>
+	<ion-card class="track_short_inf">
+	  <ion-card-header>
+	  <ion-card-content class="icon-service">
+		<ion-icon name="checkmark-done-outline"></ion-icon>
+	  </ion-card-content>
+		<ion-card-title>Last Recorded Status</ion-card-title>
+		<ion-card-subtitle>{{ status_ }}</ion-card-subtitle>
+	  </ion-card-header>
+	</ion-card>
+	</ion-col>
+	<ion-col>
+	<ion-card class="track_short_inf">
+	  <ion-card-header>
+	  <ion-card-content class="icon-service">
+		<ion-icon name="locate-outline"></ion-icon>
+	  </ion-card-content>
+		<ion-card-title>Last Recorded Location</ion-card-title>
+		<ion-card-subtitle>{{ current_loc }}</ion-card-subtitle>
+	  </ion-card-header>
+	</ion-card>
+	</ion-col>
+
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+	<ion-card class="track_short_inf">
+	  <ion-card-header>
+	  <ion-card-content class="icon-service">
+		<ion-icon name="location-outline"></ion-icon>
+	  </ion-card-content>
+		<ion-card-title>Final Destination</ion-card-title>
+		<ion-card-subtitle>{{ final_loc }}</ion-card-subtitle>
+	  </ion-card-header>
+	</ion-card>
+	</ion-col>
+	<ion-col>
+	<ion-card class="track_short_inf">
+	  <ion-card-header>
+	  <ion-card-content class="icon-service">
+		<ion-icon name="calendar-outline"></ion-icon>
+	  </ion-card-content>
+		<ion-card-title>Date Modified</ion-card-title>
+		<ion-card-subtitle>{{ date_modified }}</ion-card-subtitle>
+	  </ion-card-header>
+	</ion-card>
+	</ion-col>
+
+  </ion-row>
+
+  <ion-row *ngIf="exporter || consignee">
+    <ion-col *ngIf="exporter">
+	<ion-card class="track_short_inf">
+	  <ion-card-header>
+	  <ion-card-content class="icon-service">
+		<ion-icon name="people-outline"></ion-icon>
+	  </ion-card-content>
+		<ion-card-title>SHIPPER/EXPORTER</ion-card-title>
+		<ion-card-subtitle>{{ exporter }}</ion-card-subtitle>
+	  </ion-card-header>
+	</ion-card>
+	</ion-col>
+	<ion-col *ngIf="consignee">
+	<ion-card class="track_short_inf">
+	  <ion-card-header>
+	  <ion-card-content class="icon-service">
+		<ion-icon name="checkmark-done-outline"></ion-icon>
+	  </ion-card-content>
+		<ion-card-title>Consignee</ion-card-title>
+		<ion-card-subtitle>{{ consignee }}</ion-card-subtitle>
+	  </ion-card-header>
+	</ion-card>
+	</ion-col>
+
+  </ion-row>
+
+</ion-grid>
+
+<ion-grid>
+   <ion-row>
+   <ion-col>
+<ion-card class="history" *ngIf="histories">
+  <ion-card-header>
+    <ion-card-title>History</ion-card-title>
+    <ion-card-subtitle *ngIf="histories">
+	Download
+	<ion-button class="down-button" fill="outline" (click)="downloadFile('pdf')" color="medium" size="small">Pdf <ion-icon name="download-outline"></ion-icon></ion-button>
+	<ion-button class="down-button" fill="outline" (click)="downloadFile('xls')" color="medium" size="small">Excell <ion-icon name="download-outline"></ion-icon></ion-button>
+	</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+  <div class="vertical-timeline vertical-timeline--animate vertical-timeline--one-column" *ngFor="let history of histories">
+	<div class="vertical-timeline-item vertical-timeline-element">
+		<div>
+			<span class="vertical-timeline-element-icon bounce-in">
+				<i class="badge badge-dot fa fa-dot-circle-o badge-success">&nbsp;</i>
+			</span>
+			<div class="vertical-timeline-element-content bounce-in">
+				<h4 class="timeline-title">{{ history['status'] }}</h4>
+				<p><ion-icon name="chatbubble-ellipses-outline"></ion-icon> {{ history['comment'] }}</p>
+				<p><ion-icon name="location-outline"></ion-icon> {{ history['current_loc'] }}</p>
+				<span class="vertical-timeline-element-date">{{ history['date_added'] }}</span>
+			</div>
+		</div>
+	</div>
+
+	</div>
+  </ion-card-content>
+</ion-card>
+	</ion-col>
+   </ion-row>
+   <ion-grid>
+	<ion-col>
+		<ion-card>
+		<ion-card-content>
+<ion-item>
+  <ion-note>
+  ** ALL INFORMATION GIVEN ABOVE ARE ONLY FOR INDICATIVE AND COMMERCIAL PURPOSE AND CANNOT BE CONSIDERED AS A CONTRACTUAL COMMITMENT FROM GIEDRIUS SHIPPING. AS MODIFICATIONS AND UPDATING CAN BE MADE AT ANY TIME, YOU ARE INVITED TO CHECK REGULARLY THESE INFORMATION OR TO CONTACT OUR LOCAL OFFICES. CARRIAGES DESCRIBED HERE ABOVE, ARE SUBMITTED TO THE TERMS GIEDRIUS SHIPPING BILL OF LADING.
+  </ion-note>
+</ion-item>
+		</ion-card-content>
+		</ion-card>
+	</ion-col>
+   </ion-grid>
+</ion-grid>
+
+</ion-content>

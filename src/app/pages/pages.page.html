@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+<ion-toolbar>
+  <ion-buttons slot="start">
+  <button class="backhome" ion-button size="small" (click)="goHome()" color="medium" ><ion-icon name="arrow-back-outline"></ion-icon> Back</button>
+
+  </ion-buttons>
+  <ion-title >{{ title }}</ion-title>
+
+</ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+<div class="image-top" *ngIf="top_image" [style.background-image]="'url('+ top_image +')'" >
+
+</div>
+<ion-grid class="page-content">
+  <ion-row>
+    <ion-col>
+      <div [innerHTML]="description" class="page-description">
+
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class="request-an-quote">
+      <button (click)="openContact()" ion-button >Request A Quote <ion-icon name="paper-plane-outline"></ion-icon></button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>
